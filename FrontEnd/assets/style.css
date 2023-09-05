@@ -172,11 +172,23 @@ nav ul {
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
+  font-weight: 400;
 }
 
-li:hover {
+nav li[aria-current="page"] {
+  font-weight: 700;
+}
+
+nav li a {
+  font-weight: 300;
+  text-decoration: none;
+  color: #000;
+}
+
+nav li a:hover {
   color: #b1663c;
 }
+
 #introduction {
   display: flex;
   align-items: center;
@@ -215,30 +227,36 @@ li:hover {
 .gallery img {
   width: 100%;
 }
-#contact {
+
+#contact,
+#form-login {
   width: 50%;
   margin: auto;
 }
-#contact > * {
+#contact > *,
+#form-login > * {
   text-align: center;
 }
 #contact h2 {
   margin-bottom: 20px;
 }
-#contact form {
+#contact form,
+#form-login form {
   text-align: left;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-#contact input {
+#contact input,
+#form-login input {
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label,
+#form-login label {
   margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -287,6 +305,19 @@ input[type="radio"]:checked + label {
   color: white;
   background-color: #1d6154;
   border-color: transparent;
+}
+
+/* Form-login */
+#form-login a {
+  display: block;
+  color: #000;
+  text-align: center;
+}
+
+#form-login .error-login {
+  color: red;
+  text-align: center;
+  outline: 0;
 }
 
 /* utilities */

@@ -1,5 +1,8 @@
 export const getWorks = async () => {
-  const Works = await fetch("http://127.0.0.1:5678/api/works");
-  const result = await Works.json();
-  return result;
+  const response = await fetch("http://127.0.0.1:5678/api/works", {
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+  return await response.json();
 };

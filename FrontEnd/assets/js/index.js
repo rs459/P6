@@ -1,16 +1,37 @@
 import { getWorks } from "./services.js";
 
-const elGallery = document.querySelector(".gallery");
-
-// get all works and render them
-const works = await getWorks();
-let projectsToRender = "";
-for (const work of works) {
-  projectsToRender += `
-  		<figure>
+const generateImage = (works) => {
+  let projectsToRender = "";
+  for (const work of works) {
+    projectsToRender += `
+  	<figure>
 			<img src='${work.imageUrl}' alt='${work.title}'>
 			<figcaption>${work.title}</figcaption>
 		</figure>`;
-}
+  }
 
-elGallery.innerHTML = projectsToRender;
+  return projectsToRender;
+};
+
+// get all works and render them, apply filter if needed
+const renderWork = async (categoryToFilter = 0) => {
+  const elGallery = document.querySelector(".gallery");
+  const works = await getWorks();
+
+  //filter if needed
+  const filteredworks = works.filter((work) => {
+    if (categoryToFilter !== 0) {
+      return work.categoryId === categoryToFilter;
+    } else {
+      return work;
+    }
+  });
+
+  //render
+  elGallery.innerHTML = generateImage(filteredworks);
+};
+
+renderWork();
+
+const elFilters = document.querySelector("#filter-categories");
+elFilters.addEventListener("change", ({ target }) => renderWork(+target.value));

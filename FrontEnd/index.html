@@ -16,12 +16,12 @@
   </head>
   <body>
     <header>
-      <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
-          <li>projets</li>
-          <li>contact</li>
-          <li>login</li>
+          <li aria-current="page">projets</li>
+          <li><a href="index.html#contact">contact</a></li>
+          <li><a href="login.html">login</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -52,6 +52,44 @@
       </section>
       <section id="portfolio">
         <h2>Mes Projets</h2>
+        <form action="#" id="filter-categories">
+          <fieldset>
+            <legend class="visually-hidden">Filtrer par catégorie</legend>
+            <input
+              type="radio"
+              name="category"
+              value="0"
+              id="cat0"
+              checked
+              class="visually-hidden"
+            />
+            <label for="cat0">Tous</label>
+            <input
+              type="radio"
+              name="category"
+              value="1"
+              id="cat1"
+              class="visually-hidden"
+            />
+            <label for="cat1">Objets</label>
+            <input
+              type="radio"
+              name="category"
+              value="2"
+              id="cat2"
+              class="visually-hidden"
+            />
+            <label for="cat2">Appartements</label>
+            <input
+              type="radio"
+              name="category"
+              value="3"
+              id="cat3"
+              class="visually-hidden"
+            />
+            <label for="cat3">Hotêls & restaurants</label>
+          </fieldset>
+        </form>
         <div class="gallery">
           <figure>
             <img src="assets/images/abajour-tahina.png" alt="Abajour Tahina" />
