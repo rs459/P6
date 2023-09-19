@@ -16,11 +16,9 @@ elFormLogin.addEventListener(
     if (mail && password) {
       const response = await getLogin(mail, password);
       if (!response.ok) {
-        setTimeout(() => {
-          elErrorIndication.innerHTML =
-            "Le mot de passe ou utilisateur n'est pas correct";
-          elErrorIndication.focus();
-        }, 10);
+        elErrorIndication.innerHTML =
+          "Le mot de passe ou l'email n'est pas correct";
+        elErrorIndication.focus();
       } else {
         localStorage.setItem("auth", JSON.stringify(await response.json()));
         elErrorIndication.innerHTML = "";
