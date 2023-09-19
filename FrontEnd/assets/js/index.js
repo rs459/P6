@@ -1,17 +1,5 @@
 import { getWorks } from "./services.js";
-
-const generateImage = (works) => {
-  let projectsToRender = "";
-  for (const work of works) {
-    projectsToRender += `
-  	<figure>
-			<img src='${work.imageUrl}' alt='${work.title}'>
-			<figcaption>${work.title}</figcaption>
-		</figure>`;
-  }
-
-  return projectsToRender;
-};
+import { generateImg } from "./factory.js";
 
 // get all works and render them, apply filter if needed
 const renderWork = async (categoryToFilter = 0) => {
@@ -28,7 +16,7 @@ const renderWork = async (categoryToFilter = 0) => {
   });
 
   //render
-  elGallery.innerHTML = generateImage(filteredworks);
+  elGallery.innerHTML = generateImg(filteredworks);
 };
 
 renderWork();

@@ -1,5 +1,12 @@
+const URL = "http://localhost";
+const PORT = "5678";
+const ENDPOINT = {
+  works: "/api/works",
+  login: "/api/users/login",
+};
+
 export const getWorks = async () => {
-  const response = await fetch("http://127.0.0.1:5678/api/works", {
+  const response = await fetch(`${URL}:${PORT}${ENDPOINT.works}`, {
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
@@ -8,7 +15,7 @@ export const getWorks = async () => {
 };
 
 export const getLogin = async (email, password) => {
-  const response = await fetch("http://127.0.0.1:5678/api/users/login", {
+  const response = await fetch(`${URL}:${PORT}${ENDPOINT.login}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
