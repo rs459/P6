@@ -1,4 +1,5 @@
 import { getLogin } from "./services.js";
+import { conf } from "../conf/config.js";
 
 const elFormLogin = document.getElementById("login");
 
@@ -16,8 +17,7 @@ elFormLogin.addEventListener(
     if (mail && password) {
       const response = await getLogin(mail, password);
       if (!response.ok) {
-        elErrorIndication.innerHTML =
-          "Le mot de passe ou l'email n'est pas correct";
+        elErrorIndication.innerHTML = conf.error_login;
         elErrorIndication.focus();
       } else {
         localStorage.setItem("auth", JSON.stringify(await response.json()));
