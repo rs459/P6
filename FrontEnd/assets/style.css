@@ -91,20 +91,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
+
 body {
   line-height: 1;
 }
@@ -127,6 +114,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+img {
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
 /** end reset css**/
 body {
   max-width: 1140px;
@@ -134,11 +133,26 @@ body {
   font-family: "Work Sans";
   font-size: 14px;
 }
+
 header {
   display: flex;
   justify-content: space-between;
   margin: 50px 0;
+  background-color: #fffef8;
 }
+
+main {
+  background-color: #fffef8;
+}
+
+footer {
+  background-color: #fff;
+  min-height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 section {
   margin: 50px 0;
 }
@@ -282,7 +296,7 @@ footer nav ul {
 }
 
 /* Filters */
-#filter-categories fieldset {
+#filter-categories fieldset p {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -331,6 +345,19 @@ input[type="radio"]:checked + label {
   padding-right: 11px;
 }
 
+.js-admin .js-not-admin {
+  display: none;
+}
+.js-admin .js-is-admin {
+  display: block;
+}
+.js-is-admin {
+  display: none;
+}
+.js-not-admin {
+  display: block;
+}
+
 #portfolio h2 {
   display: flex;
   justify-content: center;
@@ -345,6 +372,184 @@ input[type="radio"]:checked + label {
 
 #button-edit {
   all: unset;
+}
+
+/* Modal */
+#main-dialog {
+  padding: 0;
+  border: 0;
+}
+
+#main-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dialog-container {
+  padding: 10px 105px;
+  max-width: 630px;
+  position: relative;
+}
+
+#dialog-gallery {
+  padding-block: 46px 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 29px 9px;
+}
+
+#dialog-gallery figure {
+  position: relative;
+  width: 77px;
+  height: 103px;
+}
+
+#dialog-gallery button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 17px;
+  width: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background-color: #000;
+  color: #fff;
+}
+
+#dialog-gallery button i {
+  font-size: 0.625rem;
+}
+
+.dialog-container button {
+  all: unset;
+}
+
+.dialog-container h1 {
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 22px;
+  font-weight: 800;
+  color: #000;
+  margin-top: 50px;
+}
+
+.dialog-container button:is(.add-item, #add-picture) {
+  display: block;
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 237px;
+  padding-block: 10px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+.dialog-container button#add-picture:disabled {
+  background-color: #a7a7a7;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.dialog-page--2 {
+  display: none;
+  min-width: 420px;
+}
+
+.dialog-container .close-dialog {
+  position: absolute;
+  top: 26px;
+  right: 30px;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.dialog-container .back-dialog {
+  position: absolute;
+  top: 26px;
+  left: 30px;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.dialog-container #image + label {
+  text-align: center;
+  padding-block: 16px;
+  min-height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #e8f1f6;
+  background-position: center;
+}
+
+.dialog-container .image-preview {
+  margin-block: 33px;
+}
+
+.dialog-container .image-preview .fake-btn {
+  background-color: #cbd6dc;
+  color: #306685;
+  border-radius: 60px;
+  display: inline-block;
+  margin-block: 7px;
+  font-size: 0.875rem;
+  padding: 10px 33px;
+}
+
+.dialog-container .image-preview .format-indication {
+  font-size: 0.625rem;
+}
+
+.dialog-container label {
+  display: block;
+}
+
+.dialog-container label i {
+  font-size: 4.75rem;
+  color: #b9c5cc;
+}
+
+.dialog-container :is(#category, #title) {
+  height: 50px;
+  font-size: 0.875rem;
+  border: none;
+  display: block;
+  padding-inline-start: 16px;
+  width: 100%;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.dialog-container #title {
+  margin-bottom: 21px;
+}
+
+.dialog-container label:is([for="category"], [for="title"]) {
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+
+.dialog-container hr {
+  margin-block-start: 47px;
+}
+
+.dialog-container .notification {
+  font-size: 0.875rem;
+  margin-block-start: 10px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.dialog-container .notification.success {
+  color: #1d6154;
+}
+
+.dialog-container .notification.error {
+  color: #f00;
 }
 
 /* utilities */

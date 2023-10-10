@@ -24,10 +24,10 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <script>
       if (localStorage.getItem("auth")) {
-        import("./assets/js/admin.js");
+        import("./js/admin.js");
       }
     </script>
-    <script type="module" src="./assets/js/index.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </head>
   <body>
     <header>
@@ -36,7 +36,8 @@
         <ul>
           <li aria-current="page">projets</li>
           <li><a href="index.html#contact">contact</a></li>
-          <li><a href="login.html">login</a></li>
+          <li class="js-not-admin"><a href="login.html">login</a></li>
+          <li class="js-is-admin"><a href="login.html">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -70,39 +71,6 @@
         <form action="#" id="filter-categories">
           <fieldset>
             <legend class="visually-hidden">Filtrer par catégorie</legend>
-            <input
-              type="radio"
-              name="category"
-              value="0"
-              id="cat0"
-              checked
-              class="visually-hidden"
-            />
-            <label for="cat0">Tous</label>
-            <input
-              type="radio"
-              name="category"
-              value="1"
-              id="cat1"
-              class="visually-hidden"
-            />
-            <label for="cat1">Objets</label>
-            <input
-              type="radio"
-              name="category"
-              value="2"
-              id="cat2"
-              class="visually-hidden"
-            />
-            <label for="cat2">Appartements</label>
-            <input
-              type="radio"
-              name="category"
-              value="3"
-              id="cat3"
-              class="visually-hidden"
-            />
-            <label for="cat3">Hotêls & restaurants</label>
           </fieldset>
         </form>
         <div class="gallery">
@@ -196,7 +164,6 @@
         </form>
       </section>
     </main>
-
     <footer>
       <nav>
         <ul>
