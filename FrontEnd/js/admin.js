@@ -19,7 +19,7 @@ document.querySelector("#portfolio h2").append(elEdit);
 
 // banner
 const elBanner = createEditionBanner();
-document.querySelector("body").prepend(elBanner);
+document.querySelector("header").prepend(elBanner);
 
 // register event listener for edit button
 elEdit.addEventListener("click", async () => {

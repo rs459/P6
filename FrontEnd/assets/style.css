@@ -132,17 +132,26 @@ body {
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
+  height: 100vh;
+  background: #fffef8;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
-  background-color: #fffef8;
+  margin: 0 0 0 50px;
+  flex-wrap: wrap;
 }
 
-main {
-  background-color: #fffef8;
+header :is(h1, nav) {
+  margin-top: 50px;
+}
+
+.admin-banner {
+  flex-basis: 100%;
+  flex-shrink: 0;
 }
 
 footer {
@@ -154,7 +163,7 @@ footer {
 }
 
 section {
-  margin: 50px 0;
+  padding: 50px 0;
 }
 
 h1 {
