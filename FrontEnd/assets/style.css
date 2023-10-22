@@ -324,6 +324,11 @@ input[type="radio"] + label {
   border: 1px solid #1d6154;
 }
 
+input[type="radio"] + label:hover {
+  transform: scale(1.1);
+  transition-duration: 100ms;
+}
+
 input[type="radio"]:checked + label {
   color: white;
   background-color: #1d6154;
@@ -383,6 +388,11 @@ input[type="radio"]:checked + label {
   all: unset;
 }
 
+#button-edit:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 /* Modal */
 #main-dialog {
   padding: 0;
@@ -426,6 +436,12 @@ input[type="radio"]:checked + label {
   color: #fff;
 }
 
+#dialog-gallery button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 100ms;
+}
+
 #dialog-gallery button i {
   font-size: 0.625rem;
 }
@@ -456,6 +472,11 @@ input[type="radio"]:checked + label {
   border-radius: 60px;
 }
 
+.dialog-container button:is(.add-item, #add-picture):hover {
+  transform: scale(1.1);
+  transition-duration: 100ms;
+}
+
 .dialog-container button#add-picture:disabled {
   background-color: #a7a7a7;
   color: #fff;
@@ -467,20 +488,25 @@ input[type="radio"]:checked + label {
   min-width: 420px;
 }
 
-.dialog-container .close-dialog {
+.dialog-container :is(.close-dialog, .back-dialog) {
   position: absolute;
   top: 26px;
-  right: 30px;
+  cursor: pointer;
   font-size: 1.5rem;
   color: #000;
 }
 
+.dialog-container :is(.close-dialog, .back-dialog):is(:hover, :focus) {
+  transform: scale(1.1);
+  transition-duration: 100ms;
+}
+
+.dialog-container .close-dialog {
+  right: 30px;
+}
+
 .dialog-container .back-dialog {
-  position: absolute;
-  top: 26px;
   left: 30px;
-  font-size: 1.5rem;
-  color: #000;
 }
 
 .dialog-container #image + label {
@@ -505,6 +531,12 @@ input[type="radio"]:checked + label {
   margin-block: 7px;
   font-size: 0.875rem;
   padding: 10px 33px;
+  cursor: pointer;
+}
+
+.dialog-container .image-preview .fake-btn:hover {
+  background-color: #306685;
+  color: #fff;
 }
 
 .dialog-container .image-preview .format-indication {

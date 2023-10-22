@@ -149,7 +149,7 @@ elFile.addEventListener("input", () => {
   isFormValid();
 });
 
-elTitle.addEventListener("blur", (event) => {
+elTitle.addEventListener("input", (event) => {
   const message = conf.error_length_title;
   if (event.target.value.length >= 3) {
     formState.title = true;
