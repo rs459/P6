@@ -58,7 +58,7 @@ export const deleteWork = async (id) => {
     const response = await fetch(`${URL}:${PORT}${ENDPOINT.works}/${id}`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json;chaset=utf-8",
+        "Content-Type": "application/json;charset=utf-8",
         Authorization: `Bearer ${token}`,
       },
     });
