@@ -102,8 +102,6 @@ const elPicturePreview = elDialog.querySelector(".image-preview label");
 const elAddPicture = elDialog.querySelector("#add-picture");
 const elNotification = elDialog.querySelector(".notification");
 
-const formSubmitWork = new FormData();
-
 const formState = {
   image: false,
   title: false,
@@ -177,9 +175,7 @@ elForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   if (isFormValid()) {
-    formSubmitWork.set("image", elFile.files[0]);
-    formSubmitWork.set("title", elTitle.value);
-    formSubmitWork.set("category", elCategory.value);
+    const formSubmitWork = new FormData(elForm);
 
     const response = await uploadWork(formSubmitWork);
 
